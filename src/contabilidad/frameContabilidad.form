@@ -273,7 +273,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="botonCuentas">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cuentas Contables"/>
+        <Property name="text" type="java.lang.String" value="Cuentas "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="botonClientes">

@@ -2,6 +2,7 @@
 package contabilidad;
 
 import java.sql.*;
+import javax.swing.JOptionPane;
  
 public  class BDControl {
     //INICIAMOS CONSTANTES DE CLASE PARA DEFINIR PARAMETROS DE CONEXION A BD
@@ -33,7 +34,7 @@ public  class BDControl {
              return miResultset;
         }
         catch(Exception e){
-            System.out.print(e.getMessage());
+            JOptionPane.showMessageDialog(null, e, "No se ha podido ejecutar la consulta SQL", 0, null);
             
         }
     
@@ -54,9 +55,12 @@ public  class BDControl {
             Statement miStatement = miConexion.createStatement();
             
             //EJECUTAR SQL
-            
+            try{
             miStatement.executeUpdate(sql);
-         
+            }
+            catch(Exception e){
+                JOptionPane.showMessageDialog(null, e, "No se ha podido ejecutar la consulta Update SQL", 0, null);
+            }
             //miStatement.close();
            
            
@@ -169,10 +173,25 @@ public  class BDControl {
      /////////////////////////////////////////////////////////////////////////
      
      public static ResultSet leeCuentas(){
-         ResultSet cuentas = ejecutaSql("SELECT * FROM cuenta ORDER BY concepto");
+         ResultSet cuentas = ejecutaSql("SELECT * FROM cuenta");
          return cuentas;
      }//FINAL LEECUENTAS
      
+     /////////////////////////////////////////////////////////////////////////
+     ////////////////////////////////////////////////////////////////////////
+     
+     public static void guardaFactRecib(int id_proveedor, String fechaFactura, String fechaOrden, String numFra, String id_cuenta, float base, float tipo, float iva, float total, String vto ) throws SQLException{
+        String periodo = leePeriodo();
+         String factrec = "factrec" + periodo;
+        
+        String sql="INSERT INTO " + factrec +" (id_proveedor,fechaFactura ,fechaOrden,numFactura,id_cuenta,base,tipo,iva,total,vto)"; 
+            
+         sql = sql + " VALUES('" + id_proveedor +"', '" + fechaFactura + "', '"+ fechaOrden  + "', '" + numFra + "', '"+ id_cuenta + "',' "+ base + "', '"+ tipo + "', '"+ iva + "', '"+ total + "', '"+ vto +"')";
+        
+             ejecutaUpdate(sql);
+         
+         
+     }
      
      
      

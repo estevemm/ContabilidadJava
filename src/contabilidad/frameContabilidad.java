@@ -12,14 +12,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
-/**
- *
- * @author Esteve
- */
+
 public class frameContabilidad extends javax.swing.JFrame {
 
-    //AQUI SE CREA EL FRAME CONTABILIDAD
+   
+    
+
+    
+    
+//AQUI SE CREA EL FRAME CONTABILIDAD
+     
     public frameContabilidad() throws SQLException {
+        
+         this.setExtendedState(MAXIMIZED_BOTH);
         initComponents();
         //CAMBIAMOS EL ICONO
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/logo.jpg")).getImage());
@@ -110,7 +115,7 @@ public class frameContabilidad extends javax.swing.JFrame {
 
         botonFactEmi.setText("Facturas Emitidas");
 
-        botonCuentas.setText("Cuentas Contables");
+        botonCuentas.setText("Cuentas ");
 
         botonClientes.setText("Clientes");
 

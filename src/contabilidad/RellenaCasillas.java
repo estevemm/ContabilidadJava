@@ -58,13 +58,21 @@ public class RellenaCasillas {
         totTot = totalTotal-totalTotalRec;
         //DEJAMOS 2 DECIMALES
         DecimalFormat formato1 = new DecimalFormat("#.00");
-        
+        // DEVOLVEMOS UN ARRAY CON LOS VALORES DE LOS CAMPOS
         String respuesta[] = {formato1.format(totalBase), formato1.format(totalIva), formato1.format(totalTotal),formato1.format(totalBaseRec), formato1.format(totalIvaRec),formato1.format(totalTotalRec) ,formato1.format(totBase) , formato1.format(totIva), formato1.format(totTot)};
         
       return respuesta;
     }
-    
-    
+    public static void limpiaFormuFcatRec(){
+        
+        
+        
+        
+    }
+    public static void rellenaTablaFactRec(){
+        
+      
+    }
     
     
     

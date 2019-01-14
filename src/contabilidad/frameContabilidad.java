@@ -432,10 +432,12 @@ public class frameContabilidad extends javax.swing.JFrame {
       
       
         try {
-             frameFrasRecib ffr = new frameFrasRecib();
+            
+             frameFrasRecib ffr;
+             ffr=new frameFrasRecib();
              ffr.setVisible(true);
             
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(frameContabilidad.class.getName()).log(Level.SEVERE, null, ex);
         }
        

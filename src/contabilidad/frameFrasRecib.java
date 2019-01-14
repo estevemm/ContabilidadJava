@@ -13,7 +13,9 @@ import javax.swing.table.DefaultTableModel;
 
 
 public class frameFrasRecib extends javax.swing.JFrame {
-
+    
+    
+ public static frameEditarFrasRec fefr = new frameEditarFrasRec();
     
     @SuppressWarnings("empty-statement")
     public frameFrasRecib() throws SQLException {
@@ -205,7 +207,7 @@ public class frameFrasRecib extends javax.swing.JFrame {
                 botonCerrarActionPerformed(evt);
             }
         });
-        getContentPane().add(botonCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 730, -1, -1));
+        getContentPane().add(botonCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 670, -1, 20));
 
         botonContab.setText("Inicio");
         botonContab.setAlignmentX(10.0F);
@@ -241,7 +243,7 @@ public class frameFrasRecib extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tablaFR);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 1190, 309));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 1190, 230));
 
         jLabel2.setText("Nombre de Proveedor");
         jLabel2.setAlignmentX(100.0F);
@@ -325,22 +327,22 @@ public class frameFrasRecib extends javax.swing.JFrame {
         getContentPane().add(comboNomProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 280, -1));
 
         jLabel12.setText("Total base trim.");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 730, -1, -1));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 660, -1, 20));
 
         textTotBaseTrim.setEditable(false);
-        getContentPane().add(textTotBaseTrim, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 730, 76, -1));
+        getContentPane().add(textTotBaseTrim, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 670, 76, 20));
 
         jLabel13.setText("Total Iva trim.");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 730, -1, -1));
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 660, -1, 20));
 
         textTotIvaTrim.setEditable(false);
-        getContentPane().add(textTotIvaTrim, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 730, 73, -1));
+        getContentPane().add(textTotIvaTrim, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 670, 73, 20));
 
         jLabel14.setText("Total trim.");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 730, -1, -1));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 660, -1, 20));
 
         textTotalTrim.setEditable(false);
-        getContentPane().add(textTotalTrim, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 730, 77, -1));
+        getContentPane().add(textTotalTrim, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 670, 77, 20));
 
         botonGuardar.setText("Guardar");
         botonGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -415,12 +417,12 @@ public class frameFrasRecib extends javax.swing.JFrame {
         jPanel1.add(jLabel16);
         jPanel1.add(calendarEditFra);
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 310, 880, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 840, -1));
 
         comboEditNumProv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Numero de proveedor editado" }));
-        getContentPane().add(comboEditNumProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 220, -1, -1));
+        getContentPane().add(comboEditNumProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 230, -1, -1));
 
-        setBounds(0, 0, 1243, 814);
+        setBounds(0, 0, 1243, 740);
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonContabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonContabActionPerformed
@@ -642,7 +644,8 @@ public class frameFrasRecib extends javax.swing.JFrame {
     }//GEN-LAST:event_comboConcepActionPerformed
 
     private void comboEditarProvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEditarProvActionPerformed
-        // TODO add your handling code here:
+        int provSeleccionado = comboEditarProv.getSelectedIndex();
+        comboEditNumProv.setSelectedIndex(provSeleccionado);
     }//GEN-LAST:event_comboEditarProvActionPerformed
 
     private void textEditNumFraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textEditNumFraActionPerformed
@@ -650,50 +653,103 @@ public class frameFrasRecib extends javax.swing.JFrame {
     }//GEN-LAST:event_textEditNumFraActionPerformed
 
     private void botonEditarFraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEditarFraActionPerformed
-     frameEditarFrasRec fefr= new frameEditarFrasRec();
-        try {
-            frameFrasRecib ffr = new frameFrasRecib();
-            Object ob = ffr.comboNomProv.getSelectedItem();
-            String pavelo = textBase.getText();
-            fefr.base = pavelo;
-            fefr.setVisible(true);
-            
-           
-        } catch (SQLException ex) {
-            Logger.getLogger(frameFrasRecib.class.getName()).log(Level.SEVERE, null, ex);
+     
+        //Validación de datos entregados
+        boolean validado = true;
+        
+        if(comboEditNumProv.getSelectedItem().toString().equals("Numero de proveedor editado")){
+            validado=false;
+            JOptionPane.showMessageDialog(null,"Hay que seleccionar un proveedor", "Atención", 0);
+        }
+        if(textEditNumFra.getText().equals("")){
+            validado=false;
+            JOptionPane.showMessageDialog(null,"Hay que seleccionar un número de factura", "Atención", 0);
+        }
+        //COMPROBAR SI LA FACTURA EXISTE
+        
+        if(validado=true){
+            boolean vFra = false, vFecha = false, vProv=false;
+            BDControl bd = new BDControl();
+            try {
+                ResultSet rs = bd.leeFacturasRecibidas();
+                String fechaF =""; 
+                String fechaL ="";
+                while(rs.next()){
+                    if(textEditNumFra.getText().equals(rs.getString("numFactura"))){
+                        //SI EXISTE LA FACTURA COMPROBAMOS QUE COINCIDA LA FECHA
+                         vFra=true;
+                        
+                        fechaF = rs.getString("fechaFactura");
+                        String ano = Integer.toString(calendarEditFra.getCalendar().get(Calendar.YEAR));
+                        
+                       int mes =calendarEditFra.getCalendar().get(Calendar.MARCH);
+                       mes++;
+                      
+                       String mess = String.format("%02d", mes);
+                       int dia = calendarEditFra.getCalendar().get(Calendar.DAY_OF_MONTH);
+                       String dias = String.format("%02d", dia);
+                       fechaL = dias+"/"+mess+"/"+ano;
+                      if(fechaF.equals(fechaL)){
+                           //SI LA FECHA Y EL NUM, FACTURA EXISTE COMPROBAMOS QUE SEA DEL MISMO PROVEEDOR
+                          vFecha=true;
+                         
+                          if(comboEditNumProv.getSelectedItem().equals(rs.getString("id_proveedor"))){
+                              lanzaFrameEditar();
+                              vProv = true; 
+                          }                     
+                       }  
+                    
+                    }  
+                }
+                
+                if(vFecha==false){JOptionPane.showMessageDialog(null, "La fecha no coincide con el numero de factura", "Atención", 0);}
+                if(vFra == false){JOptionPane.showMessageDialog(null, "la factura "+textEditNumFra.getText()+" no existe", "Atención", 0);}
+                if(vProv == false){JOptionPane.showMessageDialog(null, "No coinciden la fecha, numero y proveedor", "Atención", 0);}
+            } catch (SQLException ex) {
+                Logger.getLogger(frameFrasRecib.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }               
+    }//GEN-LAST:event_botonEditarFraActionPerformed
+public static void lanzaFrameEditar(){
+            try {
+               
+               
+               //paso de fecha al Frame Editar Facturas Recibidas
+                fefr.textProv.setText(comboEditarProv.getSelectedItem().toString());
+                String ano = Integer.toString(calendarEditFra.getCalendar().get(Calendar.YEAR));
+                int mes =calendarEditFra.getCalendar().get(Calendar.MARCH);
+                mes++;
+                String mess = Integer.toString(mes);
+                String dia = Integer.toOctalString(calendarEditFra.getCalendar().get(Calendar.DAY_OF_MONTH));
+
+               fefr.textFecha.setText(dia+"/"+mes+"/"+ano);
+
+               //paso de numero factura al Frame Editar Facturas Recibidas
+               fefr.textNumFra.setText(textEditNumFra.getText());
+               //paso de vencimiento
+               fefr.textVto.setText(textVto.getText());
+
+               //paso de nombre y numero de proveedor al Frame Editar Facturas Recibidas
+               String numeroProv = comboEditNumProv.getSelectedItem().toString();
+               //paso de cuenta
+               fefr.comboCuentas.setSelectedItem(comboCuentas.getSelectedItem());
+               fefr.textProv.setText(numeroProv);
+               fefr.setVisible(true);
+               fefr.inicializaFrame();
+               
+
+
+            } catch (Exception ex) {
+                Logger.getLogger(frameFrasRecib.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
       
-      
-    }//GEN-LAST:event_botonEditarFraActionPerformed
 
     /**
      * @param args the command line arguments
-     */
+    
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frameFrasRecib.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frameFrasRecib.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frameFrasRecib.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frameFrasRecib.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
+       
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
@@ -704,7 +760,7 @@ public class frameFrasRecib extends javax.swing.JFrame {
             }
         });
     }
-
+ */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonCerrar;
     private javax.swing.JButton botonClientes;
@@ -717,11 +773,11 @@ public class frameFrasRecib extends javax.swing.JFrame {
     private javax.swing.JButton botonGuardar;
     private javax.swing.JButton botonLimpiar;
     private javax.swing.JButton botonProveed;
-    private org.freixas.jcalendar.JCalendarCombo calendarEditFra;
+    private static org.freixas.jcalendar.JCalendarCombo calendarEditFra;
     private javax.swing.JComboBox<String> comboConcep;
-    private javax.swing.JComboBox<String> comboCuentas;
-    private javax.swing.JComboBox<String> comboEditNumProv;
-    private javax.swing.JComboBox<String> comboEditarProv;
+    private static javax.swing.JComboBox<String> comboCuentas;
+    private static javax.swing.JComboBox<String> comboEditNumProv;
+    private static javax.swing.JComboBox<String> comboEditarProv;
     private javax.swing.JComboBox<String> comboNomProv;
     private javax.swing.JLabel etiqTitulo;
     private org.freixas.jcalendar.JCalendarCombo jCalendarCombo1;
@@ -747,7 +803,7 @@ public class frameFrasRecib extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTable tablaFR;
     private javax.swing.JTextField textBase;
-    private javax.swing.JTextField textEditNumFra;
+    private static javax.swing.JTextField textEditNumFra;
     private javax.swing.JTextField textIva;
     private javax.swing.JTextField textNif;
     private javax.swing.JTextField textNumFra;
@@ -757,7 +813,7 @@ public class frameFrasRecib extends javax.swing.JFrame {
     private javax.swing.JTextField textTotIvaTrim;
     private javax.swing.JTextField textTotal;
     private javax.swing.JTextField textTotalTrim;
-    private javax.swing.JTextField textVto;
+    private static javax.swing.JTextField textVto;
     // End of variables declaration//GEN-END:variables
 
     private String proveedores(String nombre) {

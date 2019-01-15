@@ -651,7 +651,12 @@ public class frameFrasRecib extends javax.swing.JFrame {
     private void textEditNumFraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textEditNumFraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textEditNumFraActionPerformed
-
+/**
+ *El método que inicia el botón editar valida los datos que se han introducido en los tres casilleros para que coincidan
+ * con una factura en concreto
+ * 
+ * Si los datos son correctos inicia el método lanzaFrameEditar
+ */
     private void botonEditarFraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEditarFraActionPerformed
      
         //Validación de datos entregados
@@ -694,8 +699,11 @@ public class frameFrasRecib extends javax.swing.JFrame {
                           vFecha=true;
                          
                           if(comboEditNumProv.getSelectedItem().equals(rs.getString("id_proveedor"))){
+                             
+                            
                               lanzaFrameEditar();
                               vProv = true; 
+                              this.dispose();
                           }                     
                        }  
                     
@@ -710,32 +718,42 @@ public class frameFrasRecib extends javax.swing.JFrame {
             }
         }               
     }//GEN-LAST:event_botonEditarFraActionPerformed
-public static void lanzaFrameEditar(){
+/**
+ * El método lanzaFrameEditar inicia el frameEditarFrasRec, asignando los valores
+ * iniciales que se le pasan desde el formulario de edicion
+ */
+    public static void lanzaFrameEditar(){
+    
             try {
                
                
-               //paso de fecha al Frame Editar Facturas Recibidas
+                //paso de nombre de proveedor
                 fefr.textProv.setText(comboEditarProv.getSelectedItem().toString());
+                //paso de fecha al Frame Editar Facturas Recibidas
                 String ano = Integer.toString(calendarEditFra.getCalendar().get(Calendar.YEAR));
                 int mes =calendarEditFra.getCalendar().get(Calendar.MARCH);
                 mes++;
-                String mess = Integer.toString(mes);
-                String dia = Integer.toOctalString(calendarEditFra.getCalendar().get(Calendar.DAY_OF_MONTH));
+                String mess = String.format("%02d",mes);
+                
+                String dia = String.format("%02d",calendarEditFra.getCalendar().get(Calendar.DAY_OF_MONTH));
 
-               fefr.textFecha.setText(dia+"/"+mes+"/"+ano);
+               fefr.textFecha.setText(dia+"/"+mess+"/"+ano);
 
                //paso de numero factura al Frame Editar Facturas Recibidas
                fefr.textNumFra.setText(textEditNumFra.getText());
-               //paso de vencimiento
-               fefr.textVto.setText(textVto.getText());
+               
 
                //paso de nombre y numero de proveedor al Frame Editar Facturas Recibidas
                String numeroProv = comboEditNumProv.getSelectedItem().toString();
-               //paso de cuenta
-               fefr.comboCuentas.setSelectedItem(comboCuentas.getSelectedItem());
+              
+               
                fefr.textProv.setText(numeroProv);
                fefr.setVisible(true);
+               //PASO DE FECHA
+               fefr.comboFecha.setDate(calendarEditFra.getDate());
+               
                fefr.inicializaFrame();
+               
                
 
 
@@ -770,7 +788,7 @@ public static void lanzaFrameEditar(){
     private javax.swing.JButton botonEditarFra;
     private javax.swing.JButton botonFactEmi;
     private javax.swing.JButton botonFrasRec;
-    private javax.swing.JButton botonGuardar;
+    public javax.swing.JButton botonGuardar;
     private javax.swing.JButton botonLimpiar;
     private javax.swing.JButton botonProveed;
     private static org.freixas.jcalendar.JCalendarCombo calendarEditFra;

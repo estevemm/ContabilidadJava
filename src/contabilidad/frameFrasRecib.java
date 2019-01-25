@@ -202,6 +202,7 @@ public class frameFrasRecib extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         botonCerrar.setText("Cerrar");
+        botonCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         botonCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonCerrarActionPerformed(evt);
@@ -211,6 +212,7 @@ public class frameFrasRecib extends javax.swing.JFrame {
 
         botonContab.setText("Inicio");
         botonContab.setAlignmentX(10.0F);
+        botonContab.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         botonContab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonContabActionPerformed(evt);
@@ -223,12 +225,20 @@ public class frameFrasRecib extends javax.swing.JFrame {
         getContentPane().add(botonFrasRec, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, -1));
 
         botonCuentas.setText("Cuentas");
+        botonCuentas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonCuentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCuentasActionPerformed(evt);
+            }
+        });
         getContentPane().add(botonCuentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, -1, -1));
 
         botonClientes.setText("Clientes");
+        botonClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(botonClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 30, -1, -1));
 
         botonProveed.setText("Proveedores");
+        botonProveed.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(botonProveed, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(333, 29, 1132, 0));
 
@@ -262,6 +272,7 @@ public class frameFrasRecib extends javax.swing.JFrame {
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 165, -1, -1));
 
         comboConcep.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona concepto" }));
+        comboConcep.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         comboConcep.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboConcepActionPerformed(evt);
@@ -319,6 +330,7 @@ public class frameFrasRecib extends javax.swing.JFrame {
         getContentPane().add(textTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 220, 88, -1));
 
         comboNomProv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Elige proveedor" }));
+        comboNomProv.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         comboNomProv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboNomProvActionPerformed(evt);
@@ -345,6 +357,7 @@ public class frameFrasRecib extends javax.swing.JFrame {
         getContentPane().add(textTotalTrim, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 670, 77, 20));
 
         botonGuardar.setText("Guardar");
+        botonGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         botonGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonGuardarActionPerformed(evt);
@@ -353,6 +366,7 @@ public class frameFrasRecib extends javax.swing.JFrame {
         getContentPane().add(botonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 306, -1, -1));
 
         botonLimpiar.setText("Limpiar Formulario");
+        botonLimpiar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         botonLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonLimpiarActionPerformed(evt);
@@ -370,9 +384,16 @@ public class frameFrasRecib extends javax.swing.JFrame {
         getContentPane().add(jCalendarCombo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 160, 190, -1));
 
         botonFactEmi.setText("Facturas Emitidas");
+        botonFactEmi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonFactEmi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonFactEmiActionPerformed(evt);
+            }
+        });
         getContentPane().add(botonFactEmi, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, -1, -1));
 
         botonConfig.setText("Configuración");
+        botonConfig.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(botonConfig, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 30, -1, -1));
 
         jLabel1.setText("Vencimiento");
@@ -386,6 +407,7 @@ public class frameFrasRecib extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         botonEditarFra.setText("Editar factura");
+        botonEditarFra.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         botonEditarFra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonEditarFraActionPerformed(evt);
@@ -394,6 +416,7 @@ public class frameFrasRecib extends javax.swing.JFrame {
         jPanel1.add(botonEditarFra);
 
         comboEditarProv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Elige proveedor" }));
+        comboEditarProv.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         comboEditarProv.setPreferredSize(new java.awt.Dimension(200, 26));
         comboEditarProv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -718,6 +741,38 @@ public class frameFrasRecib extends javax.swing.JFrame {
             }
         }               
     }//GEN-LAST:event_botonEditarFraActionPerformed
+
+    private void botonFactEmiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonFactEmiActionPerformed
+          this.dispose();
+       
+      
+      
+        try {
+            
+             frameFrasEmitidas ffe;
+             ffe=new frameFrasEmitidas();
+             ffe.setVisible(true);
+            
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex, "Ha ocurrido un error", 1);
+        }
+    }//GEN-LAST:event_botonFactEmiActionPerformed
+
+    private void botonCuentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCuentasActionPerformed
+       this.dispose();
+       
+      
+      
+        try {
+            
+             frameCuentas fc;
+             fc=new frameCuentas();
+             fc.setVisible(true);
+            
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex, "Ha ocurrido un error", 1);
+        }
+    }//GEN-LAST:event_botonCuentasActionPerformed
 /**
  * El método lanzaFrameEditar inicia el frameEditarFrasRec, asignando los valores
  * iniciales que se le pasan desde el formulario de edicion

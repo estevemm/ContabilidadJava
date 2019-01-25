@@ -1,0 +1,25 @@
+[33mcommit 1e8bd0e036d3c2ee7bd2bee202f8bb3e8e7d539a[m[33m ([m[1;36mHEAD -> [m[1;32mDerby[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Author: esteve <estevemm@gmail.com>
+Date:   Tue Jan 15 17:35:36 2019 +0100
+
+    Editar frame Facturas emitidas funcionando
+
+[33mcommit c37b52ccae58b58c8a5f4ce9936f8eb10d90c3cc[m
+Author: esteve <estevemm59@gmail.com>
+Date:   Mon Jan 14 12:30:10 2019 +0100
+
+    Trabajos realizados en Sanci- Funciona en parte la Edicion de facturas recibidas
+
+[33mcommit 8c872c07684714ee038b5e3ea2b5dfef976e8587[m
+Author: esteve <estevemm59@gmail.com>
+Date:   Fri Jan 11 14:05:34 2019 +0100
+
+    Frame facturas recibidas funcionando, empezando a enlazar con frame editar facturas recibidas
+
+[33mcommit 72a6cad66033008e9d5e0e9f453e3be4154c8c0c[m
+Author: esteve <estevemm59@gmail.com>
+Date:   Sun Jan 6 19:18:52 2019 +0100
+
+    Inicio de programa de contabilidad en java en
+    GitHub funciona la pantalla de inicio y partre de
+    facturas recibidas enlazando con la base de datos

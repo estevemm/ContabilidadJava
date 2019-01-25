@@ -11,6 +11,7 @@ import java.text.DecimalFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 
 public class frameContabilidad extends javax.swing.JFrame {
@@ -107,6 +108,7 @@ public class frameContabilidad extends javax.swing.JFrame {
         etiquetaResumen.setText("Resumen Contable");
 
         botonFacRec.setText("Facturas Recibidas");
+        botonFacRec.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         botonFacRec.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonFacRecActionPerformed(evt);
@@ -114,14 +116,29 @@ public class frameContabilidad extends javax.swing.JFrame {
         });
 
         botonFactEmi.setText("Facturas Emitidas");
+        botonFactEmi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonFactEmi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonFactEmiActionPerformed(evt);
+            }
+        });
 
         botonCuentas.setText("Cuentas ");
+        botonCuentas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonCuentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCuentasActionPerformed(evt);
+            }
+        });
 
         botonClientes.setText("Clientes");
+        botonClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         botonProv.setText("Proveedores");
+        botonProv.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         botonCambiar.setText("Cambiar");
+        botonCambiar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         botonCambiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonCambiarActionPerformed(evt);
@@ -131,8 +148,10 @@ public class frameContabilidad extends javax.swing.JFrame {
         jLabel1.setText("Cambiar periodo Contable");
 
         comboAnyo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", " " }));
+        comboAnyo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         comboTrimes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Trim. 1", "Trim. 2", "Trim. 3", "Trim. 4" }));
+        comboTrimes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel2.setText("Total Ingresos");
 
@@ -185,8 +204,10 @@ public class frameContabilidad extends javax.swing.JFrame {
         botonInicio.setEnabled(false);
 
         botonConfig.setText("Configuración");
+        botonConfig.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         botonCerrar.setText("Cerrar");
+        botonCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         botonCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonCerrarActionPerformed(evt);
@@ -194,6 +215,7 @@ public class frameContabilidad extends javax.swing.JFrame {
         });
 
         menuArchivo.setText("Archivo");
+        menuArchivo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         menuSalir.setText("Salir");
         menuSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -206,6 +228,7 @@ public class frameContabilidad extends javax.swing.JFrame {
         jMenuBar1.add(menuArchivo);
 
         menuEditar.setText("Editar");
+        menuEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         menuConfig.setText("Configuracion");
         menuEditar.add(menuConfig);
@@ -438,10 +461,42 @@ public class frameContabilidad extends javax.swing.JFrame {
              ffr.setVisible(true);
             
         } catch (Exception ex) {
-            Logger.getLogger(frameContabilidad.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex, "Ha ocurrido un error", 1);
         }
        
     }//GEN-LAST:event_botonFacRecActionPerformed
+
+    private void botonFactEmiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonFactEmiActionPerformed
+         this.dispose();
+       
+      
+      
+        try {
+            
+             frameFrasEmitidas ffe;
+             ffe=new frameFrasEmitidas();
+             ffe.setVisible(true);
+            
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex, "Ha ocurrido un error", 1);
+        }
+    }//GEN-LAST:event_botonFactEmiActionPerformed
+
+    private void botonCuentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCuentasActionPerformed
+           this.dispose();
+       
+      
+      
+        try {
+            
+             frameCuentas fc;
+             fc=new frameCuentas();
+             fc.setVisible(true);
+            
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex, "Ha ocurrido un error", 1);
+        }
+    }//GEN-LAST:event_botonCuentasActionPerformed
 
     /**
      * @param args the command line arguments

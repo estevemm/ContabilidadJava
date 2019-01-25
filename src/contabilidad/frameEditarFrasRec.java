@@ -149,6 +149,7 @@ static String numFraIni, numProIni, fechIni;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 153, 153));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         setUndecorated(true);
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
@@ -559,7 +560,7 @@ static String numFraIni, numProIni, fechIni;
               int trim = Integer.parseInt(t);
               int anyo = Integer.parseInt(a);
 
-            if(trimIn == trim || anno == anyo){
+            if(trimIn == trim && anno == anyo){
                  
                 /////////////////////////////////////        
                 String numFra   = textNumFra.getText();

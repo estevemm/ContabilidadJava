@@ -122,6 +122,13 @@ public  class BDControl {
      }//FIN GUARDA PERIODO
      ///////////////////////////////////////////////////////////////////////
      //////////////////////////////////////////////////////////////////////
+     public static ResultSet leeClientes(){
+         ResultSet rs = null;
+         String sql = "SELECT * FROM cliente";
+         rs = ejecutaSql(sql);
+         return rs;
+     }
+     ///////////////////////////////////////////////////////////////////
      
      public static ResultSet leeFacturasEmitidas() throws SQLException{
          ResultSet miResultset =null;
@@ -193,6 +200,19 @@ public  class BDControl {
          
      }
      
-     
+     //////////////////////////////////////////////////////////////////////
+     /////////////////////////////////////////////////////////////////////
+      public static void guardaFactEmitidas(int id_cliente, String fechaFactura, String fechaOrden, String numFactura, String id_cuenta, float base, float tipo, float iva, float total, String vto, float material, float mo ) throws SQLException{
+        String periodo = leePeriodo();
+         String factemi = "factemi" + periodo;
+        
+        String sql="INSERT INTO " + factemi +" (id_cliente,fechaFactura,fechaOrden,numFactura,id_cuenta,base,tipo,iva,total,vto,material,mo)"; 
+            
+         sql = sql + " VALUES('" + id_cliente +"', '" + fechaFactura + "', '"+ fechaOrden  + "', '" + numFactura + "', '"+ id_cuenta + "',' "+ base + "', '"+ tipo + "', '"+ iva + "', '"+ total + "', '"+ vto +"' , '" + material + "' , '" + mo +"')";
+        
+             ejecutaUpdate(sql);
+         
+         
+     }
      
 }

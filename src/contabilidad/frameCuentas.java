@@ -7,6 +7,9 @@ package contabilidad;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -21,7 +24,8 @@ public class frameCuentas extends javax.swing.JFrame {
      */
     public frameCuentas() throws SQLException {
         initComponents();
-        
+       //CAMBIAMOS LOGO
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/logo.jpg")).getImage()); 
         botonCuentas.setEnabled(false);
           //TABLA DE cuentas
               
@@ -37,12 +41,16 @@ public class frameCuentas extends javax.swing.JFrame {
          ResultSet datosBD = bd.leeCuentas();
          String dato[] = new String[2];
          while(datosBD.next()){
+             
              dato[0]=datosBD.getString("concepto");
              dato[1]=datosBD.getString("id_cuenta");
-             model.addRow(dato);
+             if(dato[1].substring(0,1).equals("6")){
+                 model.addRow(dato);
+             }
+             
              
          }
-        
+         tablaCuentas.setModel(model);
     }
 
     /**
@@ -60,7 +68,7 @@ public class frameCuentas extends javax.swing.JFrame {
         textCuenta = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaCuentas = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         botonGuardar = new javax.swing.JButton();
         botonLimpiar = new javax.swing.JButton();
@@ -81,7 +89,7 @@ public class frameCuentas extends javax.swing.JFrame {
 
         jLabel3.setText("Número de cuenta");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaCuentas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -92,19 +100,39 @@ public class frameCuentas extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablaCuentas);
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("CUENTAS CONTABLES");
 
         botonGuardar.setText("Guardar");
+        botonGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonGuardarActionPerformed(evt);
+            }
+        });
 
         botonLimpiar.setText("Limpiar Formulario");
+        botonLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonLimpiarActionPerformed(evt);
+            }
+        });
 
         botonEditar.setText("Editar");
+        botonEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonEditarActionPerformed(evt);
+            }
+        });
 
         botonBorrar.setText("Borrar");
+        botonBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonBorrarActionPerformed(evt);
+            }
+        });
 
         botonCerrar.setText("Cerrar");
         botonCerrar.addActionListener(new java.awt.event.ActionListener() {
@@ -119,23 +147,19 @@ public class frameCuentas extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 323, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 33, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(botonCerrar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(botonEditar)
-                            .addComponent(botonBorrar)
-                            .addComponent(botonLimpiar)
-                            .addComponent(botonGuardar))
-                        .addGap(77, 77, 77))))
+                    .addComponent(botonCerrar)
+                    .addComponent(botonEditar)
+                    .addComponent(botonBorrar)
+                    .addComponent(botonLimpiar)
+                    .addComponent(botonGuardar))
+                .addGap(91, 91, 91))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -299,6 +323,67 @@ public class frameCuentas extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_botonFrasEmiActionPerformed
 
+    private void botonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLimpiarActionPerformed
+        textCuenta.setText("");
+        textDescripcion.setText("");
+    }//GEN-LAST:event_botonLimpiarActionPerformed
+
+    private void botonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarActionPerformed
+       String cuenta = textCuenta.getText();
+       String descr = textDescripcion.getText();
+       if (cuenta.substring(0,1).equals("6") && cuenta.length() == 6 && descr.length()!= 0){
+            BDControl bd =new BDControl();
+            String sql = "INSERT INTO cuenta (id_cuenta, concepto) VALUES ('" + cuenta + "' , '" +descr +"')";
+            bd.ejecutaUpdate(sql);
+            this.dispose();
+            frameCuentas fc;
+           try {
+               fc = new frameCuentas();
+               fc.setVisible(true);
+           } catch (SQLException ex) {
+               Logger.getLogger(frameCuentas.class.getName()).log(Level.SEVERE, null, ex);
+           }
+            
+            
+            
+       }else{
+           JOptionPane.showMessageDialog(null,"Deben estar rellenados todos los campos y los numeros de cuenta deben ser de 6 digitos y empezar por 6","Atención",1);
+       }
+        
+       
+    }//GEN-LAST:event_botonGuardarActionPerformed
+
+    private void botonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEditarActionPerformed
+       
+        BDControl bd = new BDControl();
+        String numCta = textCuenta.getText();
+        String id;
+        ResultSet rs = bd.leeCuentas();
+        if(numCta.length()== 6 ){
+           
+            try {
+                while(rs.next()){
+                        id = rs.getString("id_cuenta");
+                        if(numCta.equals(id)){
+                            textCuenta.setText(rs.getString("id_cuenta"));
+                            textDescripcion.setText(rs.getString("concepto"));
+                        }
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(frameCuentas.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }else{
+            JOptionPane.showMessageDialog(null,"Introduce las 6 cifras del número de cuenta a editar ","Atención",1);
+       
+        }
+        
+    }//GEN-LAST:event_botonEditarActionPerformed
+
+    private void botonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonBorrarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -322,7 +407,7 @@ public class frameCuentas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tablaCuentas;
     private javax.swing.JTextField textCuenta;
     private javax.swing.JTextField textDescripcion;
     // End of variables declaration//GEN-END:variables

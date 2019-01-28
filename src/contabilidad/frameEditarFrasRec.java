@@ -58,8 +58,14 @@ static String numFraIni, numProIni, fechIni;
                 ResultSet cuentas = bd.leeCuentas();
 
                 while(cuentas.next()){
-                    comboConcepto.addItem(cuentas.getString("concepto"));
-                    comboCuentas.addItem(cuentas.getString("id_cuenta"));
+                    
+                    String concepto = cuentas.getString("concepto");
+                    String numCta = cuentas.getString("id_cuenta");
+                    if(numCta.substring(0,1).equals("6")){
+                        comboConcepto.addItem(concepto);
+                        comboCuentas.addItem(numCta);
+                    }
+                    
         
                 }
       //LLENAR COMBO PROVEEDORES

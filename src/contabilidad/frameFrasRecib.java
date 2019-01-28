@@ -112,8 +112,13 @@ public class frameFrasRecib extends javax.swing.JFrame {
     ResultSet cuentas = bd.leeCuentas();
     
     while(cuentas.next()){
-        comboConcep.addItem(cuentas.getString("concepto"));
-        comboCuentas.addItem(cuentas.getString("id_cuenta"));
+        String concepto = cuentas.getString("concepto");
+        String numCta = cuentas.getString("id_cuenta");
+        if(numCta.substring(0, 1).equals("6")){
+            comboConcep.addItem(concepto);
+            comboCuentas.addItem(numCta);
+        }
+        
         
     }
     //LLENAR DATOS DE TOTALES TRIMESTRE
